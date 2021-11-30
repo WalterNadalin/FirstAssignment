@@ -1,4 +1,4 @@
-// IMplementation of the first exercise
+// Implementation of the first exercise
 
 #include <stdio.h>
 #include <mpi.h>
@@ -68,9 +68,7 @@ int main (int argc, char *argv[])
                 left_tag = right_sts.MPI_TAG;
                 right_tag = left_sts.MPI_TAG;
 
-                if(left_tag == my_tag)
-                        if(right_tag == my_tag)
-                                 flag = 0;
+                if(left_tag == my_tag) flag = 0;
 
                 // Increasing the count of messages received
                 MPI_Get_count(&right_sts, MPI_INT, &recvd_cnt);
@@ -80,7 +78,7 @@ int main (int argc, char *argv[])
 
 	}
 
-	MPI_Barrier(MPI_COMM_WORLD);
+	// MPI_Barrier(MPI_COMM_WORLD);
 	float end_time = MPI_Wtime();
 
         info_file = fopen("info.txt", "a");
