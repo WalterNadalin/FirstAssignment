@@ -1,3 +1,5 @@
+// IMplementation of the first exercise
+
 #include <stdio.h>
 #include <mpi.h>
 
