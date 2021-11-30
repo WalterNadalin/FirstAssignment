@@ -31,53 +31,61 @@ int main (int argc, char *argv[])
         int np = 0, count = 1, flag = 1;
 
         float start_time = MPI_Wtime();
+	
+	for(unsigned i = 0; i < 10; i++) {
 
-        while(flag) {
+		while(flag) {
 
-                if(rank % 2 == 0) { // If the rank is even then first send and then receive for both the left and right stream
+			if(rank % 2 == 0) { // If the rank is even then first send and then receive for both the left and right stream
 
-                        // Left stream
-                        MPI_Send(&msgleft, count, MPI_INT, left_prcs, left_tag, MPI_COMM_WORLD); // Sending to the left
-                        MPI_Recv(&right_bfr, count, MPI_INT, right_prcs, MPI_ANY_TAG, MPI_COMM_WORLD, &right_sts); // Receiving from the right
+				// Left stream
+				MPI_Send(&msgleft, count, MPI_INT, left_prcs, left_tag, MPI_COMM_WORLD); // Sending to the left
+				MPI_Recv(&right_bfr, count, MPI_INT, right_prcs, MPI_ANY_TAG, MPI_COMM_WORLD, &right_sts); // Receiving from the right
 
-                        // Right stream
-                        MPI_Send(&msgright, count, MPI_INT, right_prcs, right_tag, MPI_COMM_WORLD); // Sending to the right
-                        MPI_Recv(&left_bfr, count, MPI_INT, left_prcs, MPI_ANY_TAG, MPI_COMM_WORLD, &left_sts); // Receiving from the left
+				// Right stream
+				MPI_Send(&msgright, count, MPI_INT, right_prcs, right_tag, MPI_COMM_WORLD); // Sending to the right
+				MPI_Recv(&left_bfr, count, MPI_INT, left_prcs, MPI_ANY_TAG, MPI_COMM_WORLD, &left_sts); // Receiving from the left
 
-                } else { // If the rank is odd then first receive and then send for both the left and right stream
+			} else { // If the rank is odd then first receive and then send for both the left and right stream
 
-                        // Left stream
-                        MPI_Recv(&right_bfr, count, MPI_INT, right_prcs, MPI_ANY_TAG, MPI_COMM_WORLD, &right_sts); // Receiving from the right
-                        MPI_Send(&msgleft, count, MPI_INT, left_prcs, left_tag, MPI_COMM_WORLD); // Sending to the left
+				// Left stream
+				MPI_Recv(&right_bfr, count, MPI_INT, right_prcs, MPI_ANY_TAG, MPI_COMM_WORLD, &right_sts); // Receiving from the right
+				MPI_Send(&msgleft, count, MPI_INT, left_prcs, left_tag, MPI_COMM_WORLD); // Sending to the left
 
-	                // Right stream
-                        MPI_Recv(&left_bfr, count, MPI_INT, left_prcs, MPI_ANY_TAG, MPI_COMM_WORLD, &left_sts); // Receiving from the left
-                        MPI_Send(&msgright, count, MPI_INT, right_prcs, right_tag, MPI_COMM_WORLD); // Sending to the right
+				// Right stream
+				MPI_Recv(&left_bfr, count, MPI_INT, left_prcs, MPI_ANY_TAG, MPI_COMM_WORLD, &left_sts); // Receiving from the left
+				MPI_Send(&msgright, count, MPI_INT, right_prcs, right_tag, MPI_COMM_WORLD); // Sending to the right
 
-                }
+			}
 
-                // Printing some informations about the messagge received
-                // printf("\nSender: %d | Receiver: %d | Content: %d | Tag: %d\n", left_sts.MPI_SOURCE, rank, left_bfr, left_sts.MPI_TAG);
-                // printf("\nSender: %d | Receiver: %d | Content: %d | Tag: %d\n", right_sts.MPI_SOURCE, rank, right_bfr, right_sts.MPI_TAG);
+			// Printing some informations about the messagge received
+			// printf("\nSender: %d | Receiver: %d | Content: %d | Tag: %d\n", left_sts.MPI_SOURCE, rank, left_bfr, left_sts.MPI_TAG);
+			// printf("\nSender: %d | Receiver: %d | Content: %d | Tag: %d\n", right_sts.MPI_SOURCE, rank, right_bfr, right_sts.MPI_TAG);
 
-                // Updating properly the content of the messagges received
-                msgleft = right_bfr - rank;
-                msgright = left_bfr + rank;
+			// Updating properly the content of the messagges received
+			msgleft = right_bfr - rank;
+			msgright = left_bfr + rank;
 
-                // Updating the tags with the ones received
-                left_tag = right_sts.MPI_TAG;
-                right_tag = left_sts.MPI_TAG;
+			// Updating the tags with the ones received
+			left_tag = right_sts.MPI_TAG;
+			right_tag = left_sts.MPI_TAG;
 
-                if(left_tag == my_tag) flag = 0;
+			if(left_tag == my_tag) flag = 0;
 
-                // Increasing the count of messages received
-                MPI_Get_count(&right_sts, MPI_INT, &recvd_cnt);
-                np += recvd_cnt;
-                MPI_Get_count(&left_sts, MPI_INT, &recvd_cnt);
-                np += recvd_cnt;
+			// Increasing the count of messages received
+			MPI_Get_count(&right_sts, MPI_INT, &recvd_cnt);
+			np += recvd_cnt;
+			MPI_Get_count(&left_sts, MPI_INT, &recvd_cnt);
+			np += recvd_cnt;
 
+		}
+
+		int my_tag = rank * 10, left_tag = my_tag, right_tag = my_tag; // Initial tags to send out
+		int msgleft = rank, msgright = -rank; // Creating the initial messagges to send out
+		int left_bfr, right_bfr; // Variables that will contain the received messages from the left and from the right respectively
+		int np = 0, count = 1, flag = 1;
+	
 	}
-
 	// MPI_Barrier(MPI_COMM_WORLD);
 	float end_time = MPI_Wtime();
 
