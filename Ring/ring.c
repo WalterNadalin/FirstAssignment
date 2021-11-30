@@ -49,7 +49,8 @@ int main (int argc, char *argv[])
                         // Left stream
                         MPI_Recv(&right_bfr, count, MPI_INT, right_prcs, MPI_ANY_TAG, MPI_COMM_WORLD, &right_sts); // Receiving from the right
                         MPI_Send(&msgleft, count, MPI_INT, left_prcs, left_tag, MPI_COMM_WORLD); // Sending to the left
-                     // Right stream
+
+	                // Right stream
                         MPI_Recv(&left_bfr, count, MPI_INT, left_prcs, MPI_ANY_TAG, MPI_COMM_WORLD, &left_sts); // Receiving from the left
                         MPI_Send(&msgright, count, MPI_INT, right_prcs, right_tag, MPI_COMM_WORLD); // Sending to the right
 
@@ -75,9 +76,11 @@ int main (int argc, char *argv[])
                 MPI_Get_count(&right_sts, MPI_INT, &recvd_cnt);
                 np += recvd_cnt;
                 MPI_Get_count(&left_sts, MPI_INT, &recvd_cnt);
+                np += recvd_cnt;
 
-        }
+	}
 
+	MPI_Barrier(MPI_COMM_WORLD);
 	float end_time = MPI_Wtime();
 
         info_file = fopen("info.txt", "a");
