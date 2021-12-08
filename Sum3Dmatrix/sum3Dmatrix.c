@@ -4,14 +4,14 @@
 
 int main(int argc, char** argv) {
 
-        unsigned dim_x = 24000, dim_y = 100, dim_z = 100, dim_mat = dim_x * dim_y * dim_z, dim = 3;
+        unsigned dim_x = 2400, dim_y = 100, dim_z = 100, dim_mat = dim_x * dim_y * dim_z, dim = 3;
         double a[dim_mat], b[dim_mat], sum[dim_mat];
 
         MPI_Init(&argc, &argv);
 
         unsigned old_rank, size, root = 0;
 
-        MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+        MPI_Comm_rank(MPI_COMM_WORLD, &old_rank);
         MPI_Comm_size(MPI_COMM_WORLD, &size);
 
 	unsigned dims[dim];
@@ -25,6 +25,29 @@ int main(int argc, char** argv) {
  
     	int periods[dim];
     	for(unsigned i = 0; i < dim; i ++) periods[i] = false;
+
+        if(old_rank == root) {
+
+                for(unsigned i = 0; i < dim_z; i ++) {
+
+                        for(unsigned j = 0; j < dim_x; j ++) {
+
+                                for(unsigned k = 0; k < dim_y; k ++) {
+
+                                        a[i * dim_x * dim_y + j * dim_y + k] = 0.01 * i + j + k * 100;
+                                        b[i * dim_x * dim_y + j * dim_y + k] = 0.01 * i + j + k * 100;
+                                        // printf("%d,%d,%d:%f ", k, j, i, a[i * dim_x * dim_y + j * dim_y + k]);
+                                }
+
+                                // printf("\n");
+
+                        }
+
+                        // printf("\n");
+
+                }
+
+        }
  
     	// Let MPI assign arbitrary ranks if it deems it necessary
     	int reorder = true;
@@ -46,7 +69,7 @@ int main(int argc, char** argv) {
     	printf("\b\b)\n");
         
         unsigned elements = dim_mat / size;
-        if(rank < dim_mat % size) elements ++;
+        if(new_rank < dim_mat % size) elements ++;
 
         double scattered_a[elements], scattered_b[elements], scattered_sum[elements];
 
@@ -66,7 +89,29 @@ int main(int argc, char** argv) {
 	double end = MPI_Wtime();
 
 	printf("Time of processor %d: %f\n", new_rank, end - begin);
-	
+	/*
+	if(new_rank == root) {
+
+                for(unsigned i = 0; i < dim_z; i ++) {
+
+                        for(unsigned j = 0; j < dim_x; j ++) {
+
+                                for(unsigned k = 0; k < dim_y; k ++) {
+
+                                        printf("%d,%d,%d:%f ", k, j, i, sum[i * dim_x * dim_y + j * dim_y + k]);
+
+                                }
+
+                                printf("\n");
+
+                        }
+
+                        printf("\n");
+
+                }
+
+	}
+	*/
 	MPI_Finalize();
 	
         return 0;
