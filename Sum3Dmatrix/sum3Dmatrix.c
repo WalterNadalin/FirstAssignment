@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <mpi.h>
+#include <stdbool.h>
 
 int main(int argc, char** argv) {
 
@@ -33,14 +34,14 @@ int main(int argc, char** argv) {
     	MPI_Cart_create(MPI_COMM_WORLD, dim, dims, periods, reorder, &new_communicator);
  
    	// My rank in the new communicator
-    	int my_rank;
-   	MPI_Comm_rank(new_communicator, &my_rank);
+    	int new_rank;
+   	MPI_Comm_rank(new_communicator, &new_rank);
 
     	// Get my coordinates in the new communicator
     	int my_coords[dim];
-    	MPI_Cart_coords(new_communicator, my_rank, dim, my_coords);  
+    	MPI_Cart_coords(new_communicator, new_rank, dim, my_coords);  
 
-    	printf("[MPI process, old %d, new %d] I am located at (", old_rank, my_rank);
+    	printf("[MPI process, old %d, new %d] I am located at (", old_rank, new_rank);
     	for(unsigned i = 0; i < dim; i ++) printf("%d, ", my_coords[i]);
     	printf("\b\b)\n");
         
