@@ -3,7 +3,7 @@
 
 int main(int argc, char** argv) {
 
-        unsigned dim_x = 24000, dim_y = 100, dim_z = 100, dim = dim_x * dim_y * dim_z;
+        unsigned dim_x = 8, dim_y = 6, dim_z = 4, dim = dim_x * dim_y * dim_z;
         double a[dim], b[dim], sum[dim];
 
         MPI_Init(&argc, &argv);
@@ -57,7 +57,7 @@ int main(int argc, char** argv) {
 	double end = MPI_Wtime();
 
 	printf("Time of processor %d: %f\n", rank, end - begin);
-	/*
+	
         if(rank == root) {
 
                 for(unsigned i = 0; i < dim_z; i ++) {
@@ -66,7 +66,7 @@ int main(int argc, char** argv) {
 				
 				for(unsigned k = 0; k < dim_y; k ++) {
 
-                	                printf("%d,%d,%d:%f ", k, j, i, sum[i * dim_x * dim_y + j * dim_y + k]);
+                	                printf("sum[%d, %d, %d]: %f\t", k, j, i, sum[i * dim_x * dim_y + j * dim_y + k]);
 				
 				}
 
@@ -79,7 +79,6 @@ int main(int argc, char** argv) {
                 }
 
         }
-	*/
 	
 	MPI_Finalize();
 	
