@@ -1,0 +1,50 @@
+[ct1pt-tnode007:24948] MCW rank 0 bound to socket 0[core 0[hwt 0]]: [B/././././././././././.][./././././././././././.]
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode007
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode010:03989] MCW rank 1 bound to socket 0[core 0[hwt 0]]: [B/././././././././././.][./././././././././././.]
+[ct1pt-tnode007:24948] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode007:24948] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+[ct1pt-tnode007:24971] MCW rank 0 bound to socket 0[core 0[hwt 0]], socket 0[core 1[hwt 0]], socket 0[core 2[hwt 0]], socket 0[core 3[hwt 0]], socket 0[core 4[hwt 0]], socket 0[core 5[hwt 0]], socket 0[core 6[hwt 0]], socket 0[core 7[hwt 0]], socket 0[core 8[hwt 0]], socket 0[core 9[hwt 0]], socket 0[core 10[hwt 0]], socket 0[core 11[hwt 0]]: [B/B/B/B/B/B/B/B/B/B/B/B][./././././././././././.]
+[ct1pt-tnode007:24971] MCW rank 1 bound to socket 1[core 12[hwt 0]], socket 1[core 13[hwt 0]], socket 1[core 14[hwt 0]], socket 1[core 15[hwt 0]], socket 1[core 16[hwt 0]], socket 1[core 17[hwt 0]], socket 1[core 18[hwt 0]], socket 1[core 19[hwt 0]], socket 1[core 20[hwt 0]], socket 1[core 21[hwt 0]], socket 1[core 22[hwt 0]], socket 1[core 23[hwt 0]]: [./././././././././././.][B/B/B/B/B/B/B/B/B/B/B/B]
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode007
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode007:24971] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode007:24971] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+[ct1pt-tnode007:24996] MCW rank 0 bound to socket 0[core 0[hwt 0]]: [B/././././././././././.][./././././././././././.]
+[ct1pt-tnode007:24996] MCW rank 1 bound to socket 0[core 1[hwt 0]]: [./B/./././././././././.][./././././././././././.]
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode007
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode007:24996] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode007:24996] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+[ct1pt-tnode007:25023] MCW rank 0 bound to socket 0[core 0[hwt 0]]: [B/././././././././././.][./././././././././././.]
+[ct1pt-tnode007:25023] MCW rank 1 bound to socket 0[core 1[hwt 0]]: [./B/./././././././././.][./././././././././././.]
+[ct1pt-tnode007:25049] MCW rank 0 bound to socket 0[core 0[hwt 0]]: [B/././././././././././.][./././././././././././.]
+--------------------------------------------------------------------------
+No components were able to be opened in the btl framework.
+
+This typically means that either no components of this type were
+installed, or none of the installed components can be loaded.
+Sometimes this means that shared libraries required by these
+components are unable to be found/loaded.
+
+  Host:      ct1pt-tnode007
+  Framework: btl
+--------------------------------------------------------------------------
+[ct1pt-tnode007:25063] MCW rank 0 bound to socket 0[core 0[hwt 0]], socket 0[core 1[hwt 0]], socket 0[core 2[hwt 0]], socket 0[core 3[hwt 0]], socket 0[core 4[hwt 0]], socket 0[core 5[hwt 0]], socket 0[core 6[hwt 0]], socket 0[core 7[hwt 0]], socket 0[core 8[hwt 0]], socket 0[core 9[hwt 0]], socket 0[core 10[hwt 0]], socket 0[core 11[hwt 0]]: [B/B/B/B/B/B/B/B/B/B/B/B][./././././././././././.]
+[ct1pt-tnode007:25063] MCW rank 1 bound to socket 1[core 12[hwt 0]], socket 1[core 13[hwt 0]], socket 1[core 14[hwt 0]], socket 1[core 15[hwt 0]], socket 1[core 16[hwt 0]], socket 1[core 17[hwt 0]], socket 1[core 18[hwt 0]], socket 1[core 19[hwt 0]], socket 1[core 20[hwt 0]], socket 1[core 21[hwt 0]], socket 1[core 22[hwt 0]], socket 1[core 23[hwt 0]]: [./././././././././././.][B/B/B/B/B/B/B/B/B/B/B/B]
+[ct1pt-tnode007:25079] MCW rank 0 bound to socket 0[core 0[hwt 0]], socket 0[core 1[hwt 0]], socket 0[core 2[hwt 0]], socket 0[core 3[hwt 0]], socket 0[core 4[hwt 0]], socket 0[core 5[hwt 0]], socket 0[core 6[hwt 0]], socket 0[core 7[hwt 0]], socket 0[core 8[hwt 0]], socket 0[core 9[hwt 0]], socket 0[core 10[hwt 0]], socket 0[core 11[hwt 0]]: [B/B/B/B/B/B/B/B/B/B/B/B][./././././././././././.]
+[ct1pt-tnode007:25079] MCW rank 1 bound to socket 1[core 12[hwt 0]], socket 1[core 13[hwt 0]], socket 1[core 14[hwt 0]], socket 1[core 15[hwt 0]], socket 1[core 16[hwt 0]], socket 1[core 17[hwt 0]], socket 1[core 18[hwt 0]], socket 1[core 19[hwt 0]], socket 1[core 20[hwt 0]], socket 1[core 21[hwt 0]], socket 1[core 22[hwt 0]], socket 1[core 23[hwt 0]]: [./././././././././././.][B/B/B/B/B/B/B/B/B/B/B/B]
+[ct1pt-tnode007:25103] MCW rank 0 bound to socket 0[core 0[hwt 0]]: [B/././././././././././.][./././././././././././.]
+[ct1pt-tnode010:04058] MCW rank 1 bound to socket 0[core 0[hwt 0]]: [B/././././././././././.][./././././././././././.]
