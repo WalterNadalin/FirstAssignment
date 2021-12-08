@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <mpi.h>
 #include <stdbool.h>
+#include <stdlib.h>
 
 int main(int argc, char** argv) {
 	
 	MPI_Init(&argc, &argv);
 
-        unsigned dim_x, dim_y, dim_z;
+        unsigned dim_x, dim_y, dim_z, dim;
 	
         unsigned old_rank, size, root = 0;
 
@@ -26,12 +27,12 @@ int main(int argc, char** argv) {
 		 
 	 }
 	
-	MPI_Bcast(dim_x, 1, MPI_INT, root, MPI_COMM_WORLD);
-	MPI_Bcast(dim_y, 1, MPI_INT, root, MPI_COMM_WORLD);
-	MPI_Bcast(dim_z, 1, MPI_INT, root, MPI_COMM_WORLD);
-	MPI_Bcast(dim, 1, MPI_INT, root, MPI_COMM_WORLD);
+	MPI_Bcast(&dim_x, 1, MPI_INT, root, MPI_COMM_WORLD);
+	MPI_Bcast(&dim_y, 1, MPI_INT, root, MPI_COMM_WORLD);
+	MPI_Bcast(&dim_z, 1, MPI_INT, root, MPI_COMM_WORLD);
+	MPI_Bcast(&dim, 1, MPI_INT, root, MPI_COMM_WORLD);
 	
-	unsigned dim_mat = dim_x * dim_y * dim_z, dim;
+	unsigned dim_mat = dim_x * dim_y * dim_z;
 	double *a = (double *)calloc(dim_mat, sizeof(double));
 	double *b = (double *)calloc(dim_mat, sizeof(double));
 	double *sum = (double *)calloc(dim_mat, sizeof(double));
