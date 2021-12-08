@@ -4,8 +4,21 @@
 
 int main(int argc, char** argv) {
 
-        unsigned dim_x = 8, dim_y = 6, dim_z = 4, dim_mat = dim_x * dim_y * dim_z, dim = 3;
-        double a[dim_mat], b[dim_mat], sum[dim_mat];
+        unsigned dim_x, dim_y, dim_z;
+	
+	printf("Insert number of elements on the direction 0: \n");
+   	scanf("%d", &dimx);
+	printf("Insert number of elements on the direction 1: \n");
+   	scanf("%d", &dimy);
+	printf("Insert number of elements on the direction 2: \n");
+   	scanf("%d", &dimz);
+	printf("Insert virtual topology dimensions: \n");
+   	scanf("%d", &dim);
+	
+	unsigned dim_mat = dim_x * dim_y * dim_z, dim;
+	double *a = (double *)malloc(dim_mat * sizeof(double));
+	double *b = (double *)malloc(dim_mat * sizeof(double));
+	double *sum = (double *)malloc(dim_mat * sizeof(double));
 
         MPI_Init(&argc, &argv);
 
@@ -13,18 +26,19 @@ int main(int argc, char** argv) {
 
         MPI_Comm_rank(MPI_COMM_WORLD, &old_rank);
         MPI_Comm_size(MPI_COMM_WORLD, &size);
-
-	unsigned dims[dim];
- 
-  	for(unsigned i = 0; i < dim; i ++) dims[i] = 0;
+	
+	unsigned *dims = (unsigned *)calloc(dim * sizeof(unsigned));
   	MPI_Dims_create(size, dim, dims);
 
    	printf("Number of processors for each direction [");
     	for(unsigned i = 0; i < dim; i ++) printf("%d, ", dims[i]);
     	printf("\b\b]\n");
  
-    	int periods[dim];
+    	unsigned *periods = (unsigned *)calloc(dim * sizeof(unsigned));
     	for(unsigned i = 0; i < dim; i ++) periods[i] = false;
+	
+	// Let MPI assign arbitrary ranks if it deems it necessary
+    	int reorder = true;
 
         if(old_rank == root) {
 
@@ -36,21 +50,14 @@ int main(int argc, char** argv) {
 
                                         a[i * dim_x * dim_y + j * dim_y + k] = 0.01 * i + j + k * 100;
                                         b[i * dim_x * dim_y + j * dim_y + k] = 0.01 * i + j + k * 100;
-                                        // printf("%d,%d,%d:%f ", k, j, i, a[i * dim_x * dim_y + j * dim_y + k]);
+					
                                 }
 
-                                // printf("\n");
-
                         }
-
-                        // printf("\n");
 
                 }
 
         }
- 
-    	// Let MPI assign arbitrary ranks if it deems it necessary
-    	int reorder = true;
  
     	// Create a new communicator
     	MPI_Comm new_communicator;
@@ -61,7 +68,7 @@ int main(int argc, char** argv) {
    	MPI_Comm_rank(new_communicator, &new_rank);
 
     	// Get my coordinates in the new communicator
-    	int my_coords[dim];
+    	unsigned *my_coords = (unsigned *)calloc(dim * sizeof(unsigned));
     	MPI_Cart_coords(new_communicator, new_rank, dim, my_coords);  
 
     	printf("[MPI process, old %d, new %d] I am located at (", old_rank, new_rank);
@@ -70,8 +77,10 @@ int main(int argc, char** argv) {
         
         unsigned elements = dim_mat / size;
         if(new_rank < dim_mat % size) elements ++;
-
-        double scattered_a[elements], scattered_b[elements], scattered_sum[elements];
+	
+	double *scattered_a = (double *)malloc(elements * sizeof(double));
+	double *scattered_b = (double *)malloc(elements * sizeof(double));
+	double *scattered_sum = (double *)malloc(elements * sizeof(double));
 
 	double begin = MPI_Wtime();
 
