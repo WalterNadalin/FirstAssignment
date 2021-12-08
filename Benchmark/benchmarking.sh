@@ -1,10 +1,10 @@
 #!/bin/bash
 
 #PBS -q dssc
-#PBS -l nodes=2:ppn=1
+#PBS -l nodes=2:ppn=2
 #PBS -l walltime=00:10:00
 
-cd $PBS_O_WORDIR
+cd $PBS_O_WORKDIR
 
 module load likwid
 likwid-topology > info.txt
@@ -76,7 +76,7 @@ cd ~/first_assignment/Benchmark/
 
 cat $PBS_NODEFILE | uniq > hosts.txt
 
-mpirun -n 2 I_MPI_PIN_PROCESSOR_LIST 0,2 \
+mpirun -n 2 -genv I_MPI_PIN_PROCESSOR_LIST 0,2 \
 ~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29 2>>./bindings.txt | 
 grep -v ^# | 
 grep -v '^$' >./benchmark9.dat
@@ -86,9 +86,8 @@ mpirun -n 2 -genv I_MPI_PIN_PROCESSOR_LIST 0,1 \
 grep -v ^# | 
 grep -v '^$' >./benchmark10.dat
 
-mpirun -n 2 -machinefile hosts.txt -perhost 1 \
+mpirun -n 2 -perhost 1 -machinefile hosts.txt \
 ~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29 2>>./bindings.txt | 
 grep -v ^# |  
 grep -v '^$' >./benchmark11.dat
-
 
