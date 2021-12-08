@@ -3,31 +3,40 @@
 #include <stdbool.h>
 
 int main(int argc, char** argv) {
+	
+	MPI_Init(&argc, &argv);
 
         unsigned dim_x, dim_y, dim_z;
 	
-	printf("Insert number of elements on the direction 0: \n");
-   	scanf("%d", &dim_x);
-	printf("Insert number of elements on the direction 1: \n");
-   	scanf("%d", &dim_y);
-	printf("Insert number of elements on the direction 2: \n");
-   	scanf("%d", &dim_z);
-	printf("Insert virtual topology dimensions: \n");
-   	scanf("%d", &dim);
-	
-	unsigned dim_mat = dim_x * dim_y * dim_z, dim;
-	double *a = (double *)calloc(dim_mat, sizeof(double));
-	double *b = (double *)calloc(dim_mat, sizeof(double));
-	double *sum = (double *)calloc(dim_mat, sizeof(double));
-
-        MPI_Init(&argc, &argv);
-
         unsigned old_rank, size, root = 0;
 
         MPI_Comm_rank(MPI_COMM_WORLD, &old_rank);
         MPI_Comm_size(MPI_COMM_WORLD, &size);
 	
+	 if(old_rank == root) {
+		 
+		printf("Insert number of elements on the direction 0: \n");
+		scanf("%d", &dim_x);
+		printf("Insert number of elements on the direction 1: \n");
+		scanf("%d", &dim_y);
+		printf("Insert number of elements on the direction 2: \n");
+		scanf("%d", &dim_z);
+		printf("Insert virtual topology dimensions: \n");
+		scanf("%d", &dim);
+		 
+	 }
+	
+	MPI_Bcast(dim_x, 1, MPI_INT, root, MPI_COMM_WORLD);
+	MPI_Bcast(dim_y, 1, MPI_INT, root, MPI_COMM_WORLD);
+	MPI_Bcast(dim_z, 1, MPI_INT, root, MPI_COMM_WORLD);
+	MPI_Bcast(dim, 1, MPI_INT, root, MPI_COMM_WORLD);
+	
+	unsigned dim_mat = dim_x * dim_y * dim_z, dim;
+	double *a = (double *)calloc(dim_mat, sizeof(double));
+	double *b = (double *)calloc(dim_mat, sizeof(double));
+	double *sum = (double *)calloc(dim_mat, sizeof(double));
 	unsigned *dims = (unsigned *)calloc(dim, sizeof(unsigned));
+	
   	MPI_Dims_create(size, dim, dims);
 
    	printf("Number of processors for each direction [");
