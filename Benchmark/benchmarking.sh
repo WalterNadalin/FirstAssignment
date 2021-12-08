@@ -44,7 +44,7 @@ mpirun -np 2 --mca pml ob1 --map-by core --mca btl tcp,self --report-bindings \
 grep -v ^# | 
 grep -v '^$' >./benchmark4.dat
 
-mpirun -np 1 --mca pml ucx --map-by core --mca btl vader --report-bindings \
+mpirun -np 2 --mca pml ucx --map-by core --mca btl vader --report-bindings \
 ~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29 2>>./bindings.txt | 
 grep -v ^# | 
 grep -v '^$' >./benchmark5.dat
