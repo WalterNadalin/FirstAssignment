@@ -12,38 +12,7 @@ int main(int argc, char** argv) {
 
         MPI_Comm_rank(MPI_COMM_WORLD, &rank);
         MPI_Comm_size(MPI_COMM_WORLD, &size);
-
-	int dims[dim];
-	for(unsigned i = 0; i < dim; i ++) dims[i] = 0;
-	MPI_Dims_create(size, dim, dims);
-	
-        printf("Number of processors for each direction [");
-        for(unsigned i = 0; i < dim; i ++) printf("%d, ", dims[i]);
-        printf("\b\b]\n");	
-       
-        int periods[dim];
-        for(unsigned i = 0; i < dim; i ++) periods[i] = false;
- 
-        // Let MPI assign arbitrary ranks if it deems it necessary
-        int reorder = true;
- 
-        // Create a communicator
-        MPI_Comm new_communicator;
-        MPI_Cart_create(MPI_COMM_WORLD, dim, dims, periods, reorder, &new_communicator);
- 
-        // My rank in the new communicator
-        int my_rank;
-        MPI_Comm_rank(new_communicator, &my_rank);
-
-        // Get my coordinates in the new communicator
-        int my_coords[dim];
-        MPI_Cart_coords(new_communicator, my_rank, dim, my_coords);  
-   
-        // Print my location in the 2D torus.
-        printf("[MPI process, old %d, new %d] I am located at (", old_rank, my_rank);
-        for(unsigned i = 0; i < dim; i ++) printf("%d, ", my_coords[i]);
-        printf("\b\b)\n");
- 
+        
         unsigned elements = dim / size;
         if(rank < dim % size) elements ++;
 
