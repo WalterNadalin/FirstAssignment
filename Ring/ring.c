@@ -29,9 +29,15 @@ int main (int argc, char *argv[])
         int msgleft = rank, msgright = -rank; // Creating the initial messagges to send out
         int left_bfr, right_bfr; // Variables that will contain the received messages from the left and from the right respectively
         int np = 0, count = 1;
-	double start_time = 0, end_time = 0, min_time = 0;	
+	double start_time = 0, end_time = 0, time = 0;	
+	
+	int n_iter;
 
-	for(unsigned i = 0; i < 100000; i++) {
+	if(rank == 0) scanf("%d", &n_iter);
+
+	MPI_Bcast(&n_iter, 1, MPI_INT, 0, MPI_COMM_WORLD);	
+
+	for(unsigned i = 0; i < n_iter; i++) {
 
         	start_time = MPI_Wtime();
 
@@ -44,8 +50,8 @@ int main (int argc, char *argv[])
 				MPI_Recv(&right_bfr, count, MPI_INT, right_prcs, MPI_ANY_TAG, MPI_COMM_WORLD, &right_sts); // Receiving from the right
 
 				// Right stream
-				MPI_Send(&msgright, count, MPI_INT, right_prcs, right_tag, MPI_COMM_WORLD); // Sending to the right
-				MPI_Recv(&left_bfr, count, MPI_INT, left_prcs, MPI_ANY_TAG, MPI_COMM_WORLD, &left_sts); // Receiving from the left
+//				MPI_Ssend(&msgright, count, MPI_INT, right_prcs, right_tag, MPI_COMM_WORLD); // Sending to the right
+//				MPI_Recv(&left_bfr, count, MPI_INT, left_prcs, MPI_ANY_TAG, MPI_COMM_WORLD, &left_sts); // Receiving from the left
 
 			} else { // If the rank is odd then first receive and then send for both the left and right stream
 
@@ -54,8 +60,8 @@ int main (int argc, char *argv[])
 				MPI_Send(&msgleft, count, MPI_INT, left_prcs, left_tag, MPI_COMM_WORLD); // Sending to the left
 
 				// Right stream
-				MPI_Recv(&left_bfr, count, MPI_INT, left_prcs, MPI_ANY_TAG, MPI_COMM_WORLD, &left_sts); // Receiving from the left
-			   	MPI_Send(&msgright, count, MPI_INT, right_prcs, right_tag, MPI_COMM_WORLD); // Sending to the right
+//				MPI_Recv(&left_bfr, count, MPI_INT, left_prcs, MPI_ANY_TAG, MPI_COMM_WORLD, &left_sts); // Receiving from the left
+//			   	MPI_Ssend(&msgright, count, MPI_INT, right_prcs, right_tag, MPI_COMM_WORLD); // Sending to the right
 
 			}
 
@@ -82,11 +88,8 @@ int main (int argc, char *argv[])
 
 		} while(left_tag != my_tag);
 
-		MPI_Barrier(MPI_COMM_WORLD);
-
 		end_time = MPI_Wtime();
-
-		min_time += (end_time - start_time);	
+		time += (end_time - start_time);	
 		
 	}
 
@@ -94,8 +97,8 @@ int main (int argc, char *argv[])
         fprintf(info_file, "I am process %d and i have received %d messages. My final messages have tag %d and value %d,%d\n", rank, np, left_tag, left_bfr, right_bfr);
         fclose(info_file);
 
-        time_file = fopen("time7.dat", "a");
-        fprintf(time_file, "%d %d %f\n", size, rank, min_time);
+        time_file = fopen("time3.dat", "a");
+        fprintf(time_file, "%d %d %f\n", size, rank, time);
         fclose(time_file);
 
         MPI_Finalize();

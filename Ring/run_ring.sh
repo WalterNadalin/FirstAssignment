@@ -2,7 +2,7 @@
 
 #PBS -q dssc
 #PBS -l nodes=1:ppn=24
-#PBS -l walltime=00:10:00
+#PBS -l walltime=00:30:00
 
 cd $PBS_O_WORKDIR/
 rm time1.dat
@@ -15,26 +15,26 @@ module load openmpi-4.1.1+gnu-9.3.0
 for i in {2..24}
 
 do
-  	mpirun -np $i --map-by core ./ring1.x
+  	mpirun -np $i --map-by core ./ring1.x < iterations.txt
 done
 
 for i in {2..24}
 
 do
-  	mpirun -np $i --map-by core ./ring3.x
+  	mpirun -np $i --map-by core ./ring3.x < iterations.txt
 done
 
 for i in {2..24}
 
 do
-  	mpirun -np $i --map-by core ./ring5.x
+  	mpirun -np $i --map-by core ./ring5.x < iterations.txt
 done
 
 
 for i in {2..24}
 
 do
-  	mpirun -np $i --map-by core ./ring7.x
+  	mpirun -np $i --map-by core ./ring7.x < iterations.txt
 done
 
 exit
