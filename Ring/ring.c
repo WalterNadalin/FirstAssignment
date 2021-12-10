@@ -94,7 +94,7 @@ int main (int argc, char *argv[])
         fprintf(info_file, "I am process %d and i have received %d messages. My final messages have tag %d and value %d,%d\n", rank, np, left_tag, left_bfr, right_bfr);
         fclose(info_file);
 
-        time_file = fopen("time8.dat", "a");
+        time_file = fopen("time7.dat", "a");
         fprintf(time_file, "%d %d %f\n", size, rank, min_time);
         fclose(time_file);
 
