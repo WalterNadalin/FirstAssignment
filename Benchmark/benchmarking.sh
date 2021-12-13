@@ -23,46 +23,59 @@ cd ~/first_assignment/Benchmark/
 lstopo >> ./info.txt
 ifconfig >> ./info.txt
 
-mpirun -np 2 --map-by node --report-bindings \
-~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29 2>./bindings.txt |
-grep -v ^# | 
-grep -v '^$' >>./benchmark1.dat
-# sed 's/.* \([0-9]\+\.[0-9]*\) .*/\1,/g' >./benchmark.txt
+for i in {1..3}
+do
 
-mpirun -np 2 --map-by socket --report-bindings \
-~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29 2>>./bindings.txt | 
-grep -v ^# | 
-grep -v '^$' >>./benchmark2.dat
+  mpirun -np 2 --map-by node --report-bindings \
+  ~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29 2>./bindings.txt |
+  grep -v ^# | 
+  grep -v '^$' |
+  sed '1d' >>./benchmark1.dat
 
-mpirun -np 2 --map-by core --report-bindings \
-~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29 2>>./bindings.txt | 
-grep -v ^# | 
-grep -v '^$' >>./benchmark3.dat
+  mpirun -np 2 --map-by socket --report-bindings \
+  ~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29 2>>./bindings.txt | 
+  grep -v ^# | 
+  grep -v '^$' |
+  sed '1d' >>./benchmark2.dat
 
-mpirun -np 2 --mca pml ob1 --map-by core --mca btl tcp,self --report-bindings \
-~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29 2>>./bindings.txt | 
-grep -v ^# | 
-grep -v '^$' >>./benchmark4.dat
+  mpirun -np 2 --map-by core --report-bindings \
+  ~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29 2>>./bindings.txt | 
+  grep -v ^# | 
+  grep -v '^$' |
+  sed '1d' >>./benchmark3.dat
 
-mpirun -np 2 --mca pml ucx --map-by core --mca btl vader --report-bindings \
-~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29 2>>./bindings.txt | 
-grep -v ^# | 
-grep -v '^$' >>./benchmark5.dat
+  mpirun -np 2 --mca pml ob1 --map-by core --mca btl tcp,self --report-bindings \
+  ~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29 2>>./bindings.txt | 
+  grep -v ^# | 
+  grep -v '^$' |
+  sed '1d' >>./benchmark4.dat
 
-mpirun -np 2 --mca pml ob1 --map-by socket --mca btl tcp,self  --report-bindings \
-~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29  2>>./bindings.txt | 
-grep -v ^# | 
-grep -v '^$' >>./benchmark6.dat
+  mpirun -np 2 --mca pml ucx --map-by core --mca btl vader --report-bindings \
+  ~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29 2>>./bindings.txt | 
+  grep -v ^# | 
+  grep -v '^$' |
+  sed '1d' >>./benchmark5.dat
 
-mpirun -np 2 --mca pml ucx --map-by socket --mca btl vader --report-bindings \
-~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29 2>>./bindings.txt | 
-grep -v ^# | 
-grep -v '^$' >>./benchmark7.dat
+  mpirun -np 2 --mca pml ob1 --map-by socket --mca btl tcp,self  --report-bindings \
+  ~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29  2>>./bindings.txt | 
+  grep -v ^# | 
+  grep -v '^$' |
+  sed '1d' >>./benchmark6.dat
 
-mpirun -np 2 --mca pml ob1 --map-by node --mca btl tcp,self --report-bindings \
-~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29 2>>./bindings.txt | 
-grep -v ^# | 
-grep -v '^$' >>./benchmark8.dat
+  mpirun -np 2 --mca pml ucx --map-by socket --mca btl vader --report-bindings \
+  ~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29 2>>./bindings.txt | 
+  grep -v ^# | 
+  grep -v '^$' |
+  sed '1d' >>./benchmark7.dat
+
+  mpirun -np 2 --mca pml ob1 --map-by node --mca btl tcp,self --report-bindings \
+  ~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29 2>>./bindings.txt | 
+  grep -v ^# | 
+  grep -v '^$' |
+  sed '1d' >>./benchmark8.dat
+
+
+done
 
 cd ~/mpi-benchmarks/src_c/
 
@@ -76,18 +89,25 @@ cd ~/first_assignment/Benchmark/
 
 cat $PBS_NODEFILE | uniq > hosts.txt
 
-mpirun -n 2 -genv I_MPI_PIN_PROCESSOR_LIST 0,2 \
-~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29 2>>./bindings.txt | 
-grep -v ^# | 
-grep -v '^$' >>./benchmark9.dat
+for i in {1..3}
+do
 
-mpirun -n 2 -genv I_MPI_PIN_PROCESSOR_LIST 0,1 \
-~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29 2>>./bindings.txt | 
-grep -v ^# | 
-grep -v '^$' >>./benchmark10.dat
+  mpirun -n 2 -genv I_MPI_PIN_PROCESSOR_LIST 0,2 \
+  ~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29 2>>./bindings.txt | 
+  grep -v ^# | 
+  grep -v '^$' |
+  sed '1d' >>./benchmark9.dat
 
-mpirun -n 2 -perhost 1 -machinefile hosts.txt \
-~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29 2>>./bindings.txt | 
-grep -v ^# |  
-grep -v '^$' >>./benchmark11.dat
+  mpirun -n 2 -genv I_MPI_PIN_PROCESSOR_LIST 0,1 \
+  ~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29 2>>./bindings.txt | 
+  grep -v ^# | 
+  grep -v '^$' |
+  sed '1d' >>./benchmark10.dat
 
+  mpirun -n 2 -perhost 1 -machinefile hosts.txt \
+  ~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29 2>>./bindings.txt | 
+  grep -v ^# |  
+  grep -v '^$' |
+  sed '1d' >>./benchmark11.dat
+
+done
