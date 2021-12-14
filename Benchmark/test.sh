@@ -23,29 +23,18 @@ cd ~/first_assignment/Benchmark/
 lstopo >> ./info.txt
 ifconfig >> ./info.txt
 
-echo "#header_line 1: mpirun -np 2 --map-by node ~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29" > benchmark1.dat
-echo "#header_line 2:" >> benchmark1.dat
+echo -e "#header_line 1: mpirun -np 2 --map-by node ~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29\n#header_line 2:" > benchmark1.dat
 cat $PBS_NODEFILE | uniq >> benchmark1.dat
-echo "#header_line 3:" >> benchmark1.dat
-echo "#header: #bytes #repetitions t[usec] Mbytes/sec" >> benchmark1.dat
+echo -e "#header_line 3:\n#header: #bytes #repetitions t[usec] Mbytes/sec" >> benchmark1.dat
  
-mpirun -np 2 --map-by node --report-bindings \
-~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29 2>./bindings.txt |
-grep -v '^#' | 
-grep -v '^$' |
-sed '1d'
-awk {'print $1", "$2", "$3", "$4'} |
-column -t >> ./benchmark1.dat
+mpirun -np 2 --map-by node --report-bindings ~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29 2>./bindings.txt |
+grep -v '^#' | grep -v '^$' | sed '1d' | awk {'print $1", "$2", "$3", "$4'} | column -t >> ./benchmark1.dat
 
 for i in {1..2} 
 do
 
 	mpirun -np 2 --map-by node ~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29 2>/dev/null |
-	grep -v '^#' | 
-	grep -v '^$' |
-	sed '1d' |
-	awk {'print $1", "$2", "$3", "$4'} |
-	column -t >> ./benchmark1.dat
+	grep -v '^#' | grep -v '^$' | sed '1d' | awk {'print $1", "$2", "$3", "$4'} | column -t >> ./benchmark1.dat
 
 done
 

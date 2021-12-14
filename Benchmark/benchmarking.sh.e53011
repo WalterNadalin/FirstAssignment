@@ -1,0 +1,246 @@
+loading dependency gnu/9.3.0
+loading dependency numactl/2.0.13
+loading dependency hwloc/2.2.0
+Infiniband hardware address can be incorrect! Please read BUGS section in ifconfig(8).
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode009
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode009:07653] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode009:07653] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode009
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode009:07671] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode009:07671] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode009
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode009:07746] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode009:07746] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode009
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode009:07893] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode009:07893] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode009
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode009:07911] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode009:07911] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode009
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode009:08187] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode009:08187] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode009
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode009:08589] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode009:08589] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode009
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode009:08607] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode009:08607] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode009
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode009:08679] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode009:08679] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode009
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode009:08901] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode009:08901] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode009
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode009:08919] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode009:08919] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode009
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode009:08945] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode009:08945] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode010
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode009:09076] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode009:09076] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode009
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode009:09146] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode009:09146] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode009
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode009:09172] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode009:09172] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode010
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode009:09301] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode009:09301] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode009
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode009:09319] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode009:09319] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode009
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode009:09348] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode009:09348] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode009
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode009:09531] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode009:09531] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode009
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode009:09549] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode009:09549] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode009
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode009:09576] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode009:09576] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode009
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode009:10320] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode009:10320] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode009
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode009:10340] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode009:10340] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode009
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode009:10367] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode009:10367] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode010
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode009:10518] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode009:10518] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode009
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode009:10535] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode009:10535] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode009
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode009:10562] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode009:10562] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode010
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode009:10760] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode009:10760] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode009
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode009:10806] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode009:10806] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   ct1pt-tnode009
+  Local device: mlx5_0
+--------------------------------------------------------------------------
+[ct1pt-tnode009:10833] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+[ct1pt-tnode009:10833] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+This module provide the environment for a full installation of Intel(R) Parallel Studio XE 2020.4.912 Cluster Edition.
+This module is under testing, and it will __likely__ screw up your environment (once you read this, it may be too late).
