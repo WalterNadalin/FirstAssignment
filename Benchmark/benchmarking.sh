@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#PBS -q dssc
+#PBS -q dssc_gpu
 #PBS -l nodes=2:ppn=24
 #PBS -l walltime=00:10:00
 
