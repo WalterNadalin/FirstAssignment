@@ -50,8 +50,8 @@ int main (int argc, char *argv[])
 				MPI_Recv(&right_bfr, count, MPI_INT, right_prcs, MPI_ANY_TAG, MPI_COMM_WORLD, &right_sts); // Receiving from the right
 
 				// Right stream
-//				MPI_Ssend(&msgright, count, MPI_INT, right_prcs, right_tag, MPI_COMM_WORLD); // Sending to the right
-//				MPI_Recv(&left_bfr, count, MPI_INT, left_prcs, MPI_ANY_TAG, MPI_COMM_WORLD, &left_sts); // Receiving from the left
+				MPI_Ssend(&msgright, count, MPI_INT, right_prcs, right_tag, MPI_COMM_WORLD); // Sending to the right
+				MPI_Recv(&left_bfr, count, MPI_INT, left_prcs, MPI_ANY_TAG, MPI_COMM_WORLD, &left_sts); // Receiving from the left
 
 			} else { // If the rank is odd then first receive and then send for both the left and right stream
 
@@ -60,8 +60,8 @@ int main (int argc, char *argv[])
 				MPI_Send(&msgleft, count, MPI_INT, left_prcs, left_tag, MPI_COMM_WORLD); // Sending to the left
 
 				// Right stream
-//				MPI_Recv(&left_bfr, count, MPI_INT, left_prcs, MPI_ANY_TAG, MPI_COMM_WORLD, &left_sts); // Receiving from the left
-//			   	MPI_Ssend(&msgright, count, MPI_INT, right_prcs, right_tag, MPI_COMM_WORLD); // Sending to the right
+				MPI_Recv(&left_bfr, count, MPI_INT, left_prcs, MPI_ANY_TAG, MPI_COMM_WORLD, &left_sts); // Receiving from the left
+			   	MPI_Ssend(&msgright, count, MPI_INT, right_prcs, right_tag, MPI_COMM_WORLD); // Sending to the right
 
 			}
 
@@ -97,7 +97,7 @@ int main (int argc, char *argv[])
         fprintf(info_file, "I am process %d and i have received %d messages. My final messages have tag %d and value %d,%d\n", rank, np, left_tag, left_bfr, right_bfr);
         fclose(info_file);
 
-        time_file = fopen("time3.dat", "a");
+        time_file = fopen("time.dat", "a");
         fprintf(time_file, "%d %d %f\n", size, rank, time);
         fclose(time_file);
 
