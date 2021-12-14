@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #PBS -q dssc
-#PBS -l nodes=2:ppn=2
+#PBS -l nodes=2:ppn=24
 #PBS -l walltime=00:10:00
 
 cd $PBS_O_WORKDIR
@@ -71,7 +71,7 @@ grep -v ^# |
 grep -v '^$' |
 sed '1d' >./benchmark8.dat
 
-for i in {1..10}
+for i in {1..9}
 do
 
   mpirun -np 2 --map-by node \
