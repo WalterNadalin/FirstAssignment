@@ -23,19 +23,19 @@ cd ~/first_assignment/Benchmark/
 lstopo >> ./info.txt
 ifconfig >> ./info.txt
 
-mpirun -np 2 --map-by node --report-bindings \
+mpirun -np 2 --map-by node --mca pml ucx --mca btl openib --report-bindings \
 ~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29 2>./bindings.txt |
 grep -v ^# | 
 grep -v '^$' |
 sed '1d' >./benchmark1.dat
 
-mpirun -np 2 --map-by socket --report-bindings \
+mpirun -np 2 --map-by socket --mca pml ucx --mca btl openib --report-bindings \
 ~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29 2>>./bindings.txt | 
 grep -v ^# | 
 grep -v '^$' |
 sed '1d' >./benchmark2.dat
 
-mpirun -np 2 --map-by core --report-bindings \
+mpirun -np 2 --map-by core --mca pml ucx --mca btl openib --report-bindings \
 ~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29 2>>./bindings.txt | 
 grep -v ^# | 
 grep -v '^$' |
@@ -74,19 +74,19 @@ sed '1d' >./benchmark8.dat
 for i in {1..9}
 do
 
-  mpirun -np 2 --map-by node \
+  mpirun -np 2 --map-by node --mca pml ucx --mca btl openib \
   ~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29 |
   grep -v ^# | 
   grep -v '^$' |
   sed '1d' >>./benchmark1.dat
 
-  mpirun -np 2 --map-by socket \
+  mpirun -np 2 --map-by socket --mca pml ucx --mca btl openib \
   ~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29 | 
   grep -v ^# | 
   grep -v '^$' |
   sed '1d' >>./benchmark2.dat
 
-  mpirun -np 2 --map-by core \
+  mpirun -np 2 --map-by core --mca pml ucx --mca btl openib \
   ~/mpi-benchmarks/src_c/IMB-MPI1 PingPong -msglog 29 | 
   grep -v ^# | 
   grep -v '^$' |

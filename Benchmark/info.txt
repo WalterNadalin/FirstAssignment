@@ -61,32 +61,32 @@ NUMA domains:		2
 Domain:			0
 Processors:		( 0 2 4 6 8 10 12 14 16 18 20 22 )
 Distances:		10 21
-Free memory:		362820 MB
-Total memory:		385428 MB
+Free memory:		384117 MB
+Total memory:		385436 MB
 --------------------------------------------------------------------------------
 Domain:			1
 Processors:		( 1 3 5 7 9 11 13 15 17 19 21 23 )
 Distances:		21 10
-Free memory:		348528 MB
+Free memory:		385393 MB
 Total memory:		387069 MB
 --------------------------------------------------------------------------------
-	linux-vdso.so.1 =>  (0x00007fff871b9000)
-	libmpi.so.40 => /opt/area/shared/programs/x86_64/openmpi/4.1.1/gnu/9.3.0/lib/libmpi.so.40 (0x0000147e949a9000)
-	libpthread.so.0 => /lib64/libpthread.so.0 (0x0000147e9478d000)
-	libc.so.6 => /lib64/libc.so.6 (0x0000147e943bf000)
-	libopen-rte.so.40 => /opt/area/shared/programs/x86_64/openmpi/4.1.1/gnu/9.3.0/lib/libopen-rte.so.40 (0x0000147e94107000)
-	libopen-orted-mpir.so => /opt/area/shared/programs/x86_64/openmpi/4.1.1/gnu/9.3.0/lib/libopen-orted-mpir.so (0x0000147e93f05000)
-	libopen-pal.so.40 => /opt/area/shared/programs/x86_64/openmpi/4.1.1/gnu/9.3.0/lib/libopen-pal.so.40 (0x0000147e93c41000)
-	libdl.so.2 => /lib64/libdl.so.2 (0x0000147e93a3d000)
-	librt.so.1 => /lib64/librt.so.1 (0x0000147e93835000)
-	libutil.so.1 => /lib64/libutil.so.1 (0x0000147e93632000)
-	libz.so.1 => /lib64/libz.so.1 (0x0000147e9341c000)
-	libhwloc.so.15 => /opt/area/shared/programs/x86_64/hwloc/2.2.0/lib/libhwloc.so.15 (0x0000147e931cb000)
-	libm.so.6 => /lib64/libm.so.6 (0x0000147e92ec9000)
-	libpciaccess.so.0 => /lib64/libpciaccess.so.0 (0x0000147e92cbf000)
-	libxml2.so.2 => /lib64/libxml2.so.2 (0x0000147e92955000)
-	/lib64/ld-linux-x86-64.so.2 (0x0000147e94cd0000)
-	liblzma.so.5 => /lib64/liblzma.so.5 (0x0000147e9272f000)
+	linux-vdso.so.1 =>  (0x00007ffc0c9be000)
+	libmpi.so.40 => /opt/area/shared/programs/x86_64/openmpi/4.1.1/gnu/9.3.0/lib/libmpi.so.40 (0x000014759c6d4000)
+	libpthread.so.0 => /lib64/libpthread.so.0 (0x000014759c4b8000)
+	libc.so.6 => /lib64/libc.so.6 (0x000014759c0ea000)
+	libopen-rte.so.40 => /opt/area/shared/programs/x86_64/openmpi/4.1.1/gnu/9.3.0/lib/libopen-rte.so.40 (0x000014759be32000)
+	libopen-orted-mpir.so => /opt/area/shared/programs/x86_64/openmpi/4.1.1/gnu/9.3.0/lib/libopen-orted-mpir.so (0x000014759bc30000)
+	libopen-pal.so.40 => /opt/area/shared/programs/x86_64/openmpi/4.1.1/gnu/9.3.0/lib/libopen-pal.so.40 (0x000014759b96c000)
+	libdl.so.2 => /lib64/libdl.so.2 (0x000014759b768000)
+	librt.so.1 => /lib64/librt.so.1 (0x000014759b560000)
+	libutil.so.1 => /lib64/libutil.so.1 (0x000014759b35d000)
+	libz.so.1 => /lib64/libz.so.1 (0x000014759b147000)
+	libhwloc.so.15 => /opt/area/shared/programs/x86_64/hwloc/2.2.0/lib/libhwloc.so.15 (0x000014759aef6000)
+	libm.so.6 => /lib64/libm.so.6 (0x000014759abf4000)
+	libpciaccess.so.0 => /lib64/libpciaccess.so.0 (0x000014759a9ea000)
+	libxml2.so.2 => /lib64/libxml2.so.2 (0x000014759a680000)
+	/lib64/ld-linux-x86-64.so.2 (0x000014759c9fb000)
+	liblzma.so.5 => /lib64/liblzma.so.5 (0x000014759a45a000)
 Machine (754GB total)
   Package L#0
     NUMANode L#0 (P#0 376GB)
@@ -139,63 +139,63 @@ Machine (754GB total)
       L2 L#22 (1024KB) + L1d L#22 (32KB) + L1i L#22 (32KB) + Core L#22 + PU L#22 (P#21)
       L2 L#23 (1024KB) + L1d L#23 (32KB) + L1i L#23 (32KB) + Core L#23 + PU L#23 (P#23)
 bond0: flags=5187<UP,BROADCAST,RUNNING,MASTER,MULTICAST>  mtu 1500
-        inet6 fe80::3680:dff:fe4e:5568  prefixlen 64  scopeid 0x20<link>
-        ether 34:80:0d:4e:55:68  txqueuelen 1000  (Ethernet)
-        RX packets 4988196190  bytes 2347284195376 (2.1 TiB)
-        RX errors 0  dropped 1439865  overruns 453992  frame 0
-        TX packets 2905197545  bytes 3985367742919 (3.6 TiB)
+        inet6 fe80::3680:dff:fe4e:5d7e  prefixlen 64  scopeid 0x20<link>
+        ether 34:80:0d:4e:5d:7e  txqueuelen 1000  (Ethernet)
+        RX packets 1358114154  bytes 1143981614464 (1.0 TiB)
+        RX errors 0  dropped 973452  overruns 1171  frame 0
+        TX packets 1627911992  bytes 2256959955596 (2.0 TiB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
 br0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
-        inet 10.128.2.127  netmask 255.255.255.0  broadcast 10.128.2.255
-        inet6 fe80::3680:dff:fe4e:5568  prefixlen 64  scopeid 0x20<link>
-        ether 34:80:0d:4e:55:68  txqueuelen 1000  (Ethernet)
-        RX packets 2413405083  bytes 2122460102615 (1.9 TiB)
+        inet 10.128.2.129  netmask 255.255.255.0  broadcast 10.128.2.255
+        inet6 fe80::3680:dff:fe4e:5d7e  prefixlen 64  scopeid 0x20<link>
+        ether 34:80:0d:4e:5d:7e  txqueuelen 1000  (Ethernet)
+        RX packets 666850706  bytes 1082013281276 (1007.7 GiB)
         RX errors 0  dropped 0  overruns 0  frame 0
-        TX packets 475766946  bytes 3813371208311 (3.4 TiB)
+        TX packets 263337165  bytes 2160386711414 (1.9 TiB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
 em1: flags=6211<UP,BROADCAST,RUNNING,SLAVE,MULTICAST>  mtu 1500
-        ether 34:80:0d:4e:55:68  txqueuelen 1000  (Ethernet)
-        RX packets 3659308213  bytes 2255197305269 (2.0 TiB)
-        RX errors 0  dropped 0  overruns 453992  frame 0
-        TX packets 2905196661  bytes 3985366987025 (3.6 TiB)
+        ether 34:80:0d:4e:5d:7e  txqueuelen 1000  (Ethernet)
+        RX packets 1325399806  bytes 1141478285044 (1.0 TiB)
+        RX errors 0  dropped 0  overruns 1171  frame 0
+        TX packets 1627910940  bytes 2256959200616 (2.0 TiB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-        device interrupt 72  memory 0x9e820000-9e83ffff  
+        device interrupt 72  memory 0xa1820000-a183ffff  
 
 em2: flags=6211<UP,BROADCAST,RUNNING,SLAVE,MULTICAST>  mtu 1500
-        ether 34:80:0d:4e:55:68  txqueuelen 1000  (Ethernet)
-        RX packets 1328887977  bytes 92086890107 (85.7 GiB)
+        ether 34:80:0d:4e:5d:7e  txqueuelen 1000  (Ethernet)
+        RX packets 32714348  bytes 2503329420 (2.3 GiB)
         RX errors 0  dropped 0  overruns 0  frame 0
-        TX packets 884  bytes 755894 (738.1 KiB)
+        TX packets 1052  bytes 754980 (737.2 KiB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-        device interrupt 202  memory 0x9e800000-9e81ffff  
+        device interrupt 194  memory 0xa1800000-a181ffff  
 
 ib0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 2044
-        inet 10.128.6.127  netmask 255.255.255.0  broadcast 10.128.6.255
-        inet6 fe80::ba59:9f03:d4:27d6  prefixlen 64  scopeid 0x20<link>
+        inet 10.128.6.129  netmask 255.255.255.0  broadcast 10.128.6.255
+        inet6 fe80::ba59:9f03:d4:27f2  prefixlen 64  scopeid 0x20<link>
         infiniband 00:00:09:07:FE:80:00:00:00:00:00:00:00:00:00:00:00:00:00:00  txqueuelen 256  (InfiniBand)
-        RX packets 33631892723  bytes 68342223593287 (62.1 TiB)
+        RX packets 13838817007  bytes 28030757374593 (25.4 TiB)
         RX errors 0  dropped 0  overruns 0  frame 0
-        TX packets 45394341298  bytes 91001600534675 (82.7 TiB)
+        TX packets 20345890161  bytes 40764230054930 (37.0 TiB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
 lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         inet 127.0.0.1  netmask 255.0.0.0
         inet6 ::1  prefixlen 128  scopeid 0x10<host>
         loop  txqueuelen 1000  (Local Loopback)
-        RX packets 1123643799  bytes 21139624682064 (19.2 TiB)
+        RX packets 103237432  bytes 1447446832037 (1.3 TiB)
         RX errors 0  dropped 0  overruns 0  frame 0
-        TX packets 1123643799  bytes 21139624682064 (19.2 TiB)
+        TX packets 103237432  bytes 1447446832037 (1.3 TiB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
-	linux-vdso.so.1 =>  (0x00007ffdb17c1000)
-	libmpifort.so.12 => /opt/area/shared/programs/x86_64/intel/parallel_studio_xe_2020_update4_cluster_edition/compilers_and_libraries_2020.4.304/linux/mpi/intel64/lib/libmpifort.so.12 (0x000014942076d000)
-	libmpi.so.12 => /opt/area/shared/programs/x86_64/intel/parallel_studio_xe_2020_update4_cluster_edition/compilers_and_libraries_2020.4.304/linux/mpi/intel64/lib/release/libmpi.so.12 (0x000014941f40d000)
-	librt.so.1 => /lib64/librt.so.1 (0x000014941f205000)
-	libpthread.so.0 => /lib64/libpthread.so.0 (0x000014941efe9000)
-	libdl.so.2 => /lib64/libdl.so.2 (0x000014941ede5000)
-	libc.so.6 => /lib64/libc.so.6 (0x000014941ea17000)
-	libgcc_s.so.1 => /lib64/libgcc_s.so.1 (0x000014941e801000)
-	libfabric.so.1 => /opt/area/shared/programs/x86_64/intel/parallel_studio_xe_2020_update4_cluster_edition/compilers_and_libraries_2020.4.304/linux/mpi/intel64/libfabric/lib/libfabric.so.1 (0x000014941e5bf000)
-	/lib64/ld-linux-x86-64.so.2 (0x0000149420b2b000)
+	linux-vdso.so.1 =>  (0x00007ffeb83ea000)
+	libmpifort.so.12 => /opt/area/shared/programs/x86_64/intel/parallel_studio_xe_2020_update4_cluster_edition/compilers_and_libraries_2020.4.304/linux/mpi/intel64/lib/libmpifort.so.12 (0x0000147eda732000)
+	libmpi.so.12 => /opt/area/shared/programs/x86_64/intel/parallel_studio_xe_2020_update4_cluster_edition/compilers_and_libraries_2020.4.304/linux/mpi/intel64/lib/release/libmpi.so.12 (0x0000147ed93d2000)
+	librt.so.1 => /lib64/librt.so.1 (0x0000147ed91ca000)
+	libpthread.so.0 => /lib64/libpthread.so.0 (0x0000147ed8fae000)
+	libdl.so.2 => /lib64/libdl.so.2 (0x0000147ed8daa000)
+	libc.so.6 => /lib64/libc.so.6 (0x0000147ed89dc000)
+	libgcc_s.so.1 => /lib64/libgcc_s.so.1 (0x0000147ed87c6000)
+	libfabric.so.1 => /opt/area/shared/programs/x86_64/intel/parallel_studio_xe_2020_update4_cluster_edition/compilers_and_libraries_2020.4.304/linux/mpi/intel64/libfabric/lib/libfabric.so.1 (0x0000147ed8584000)
+	/lib64/ld-linux-x86-64.so.2 (0x0000147edaaf0000)
