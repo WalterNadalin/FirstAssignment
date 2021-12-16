@@ -2,19 +2,28 @@
 #include <mpi.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <time.h>
+
+/* generate a random floating point number from min to max */
+double randfrom(double min, double max) 
+{
+    double range = (max - min); 
+    double div = RAND_MAX / range;
+    return min + (rand() / div);
+}
 
 int main(int argc, char** argv) {
 	
 	MPI_Init(&argc, &argv);
 
-        unsigned dim_x, dim_y, dim_z, dim;
-	
+        FILE *time_file;
+        unsigned dim_x, dim_y, dim_z, dim;	
         unsigned old_rank, size, root = 0;
 
         MPI_Comm_rank(MPI_COMM_WORLD, &old_rank);
         MPI_Comm_size(MPI_COMM_WORLD, &size);
 	
-	 if(old_rank == root) {
+	if(old_rank == root) {
 		 
 		printf("Insert number of elements on the direction 0: \n");
 		scanf("%d", &dim_x);
@@ -37,13 +46,35 @@ int main(int argc, char** argv) {
 	double *b = (double *)calloc(dim_mat, sizeof(double));
 	double *sum = (double *)calloc(dim_mat, sizeof(double));
 	unsigned *dims = (unsigned *)calloc(dim, sizeof(unsigned));
-	
-  	MPI_Dims_create(size, dim, dims);
 
+
+	if(old_rank == root) {
+
+		for(unsigned i = 0; i < dim; i++) {
+
+   			printf("Insert the number of processors on the direction %d", i);
+    			scanf("%d", &dims[i]);
+
+		}
+
+	}
+	
+  	// MPI_Dims_create(size, dim, dims);
+
+	if(old_rank == root) {
+
+   		printf("Number of processors for each direction [");
+    		for(unsigned i = 0; i < dim; i ++) printf("%d, ", dims[i]);
+    		printf("\b\b]\n");
+
+	}
+
+	MPI_Bcast(dims, dim, MPI_INT, root, MPI_COMM_WORLD);
+/*
    	printf("Number of processors for each direction [");
     	for(unsigned i = 0; i < dim; i ++) printf("%d, ", dims[i]);
     	printf("\b\b]\n");
- 
+*/ 
     	unsigned *periods = (unsigned *)calloc(dim, sizeof(unsigned));
     	for(unsigned i = 0; i < dim; i ++) periods[i] = false;
 	
@@ -52,19 +83,30 @@ int main(int argc, char** argv) {
 
         if(old_rank == root) {
 
+		srand (time ( NULL));
+
                 for(unsigned i = 0; i < dim_z; i ++) {
 
                         for(unsigned j = 0; j < dim_x; j ++) {
 
                                 for(unsigned k = 0; k < dim_y; k ++) {
 
-                                        a[i * dim_x * dim_y + j * dim_y + k] = 0.01 * i + j + k * 100;
-                                        b[i * dim_x * dim_y + j * dim_y + k] = 0.01 * i + j + k * 100;
+					a[i * dim_x * dim_y + j * dim_y + k] = randfrom(-100, 100);
+					b[i * dim_x * dim_y + j * dim_y + k] = randfrom(-100, 100);
+                                        //a[i * dim_x * dim_y + j * dim_y + k] = 0.01 * i + j + k * 100;
+                                        //b[i * dim_x * dim_y + j * dim_y + k] = 0.01 * i + j + k * 100;
 					
+                                        //printf("a[%d, %d, %d]: %f\t", k, j, i, a[i * dim_x * dim_y + j * dim_y + k]);
+                                        //printf("b[%d, %d, %d]: %f\t", k, j, i, b[i * dim_x * dim_y + j * dim_y + k]);
+
                                 }
+
+                                //printf("\n");
 
                         }
 
+                        //printf("\n");
+                                
                 }
 
         }
@@ -86,8 +128,7 @@ int main(int argc, char** argv) {
     	printf("\b\b)\n");
         
         unsigned elements = dim_mat / size;
-        if(new_rank < dim_mat % size) elements ++;
-	
+   	
 	double *scattered_a = (double *)calloc(elements, sizeof(double));
 	double *scattered_b = (double *)calloc(elements, sizeof(double));
 	double *scattered_sum = (double *)calloc(elements, sizeof(double));
@@ -107,9 +148,11 @@ int main(int argc, char** argv) {
 
 	double end = MPI_Wtime();
 
-	printf("Time of processor %d: %f\n", new_rank, end - begin);
-	
-	if(new_rank == root) {
+	time_file = fopen("time_sum3Dmatrix.dat", "a");	
+	fprintf(time_file, "Time of processor %d: %f\n", new_rank, end - begin);
+	fclose(time_file);
+
+	/*if(new_rank == root) {
 
                 for(unsigned i = 0; i < dim_z; i ++) {
 
@@ -129,7 +172,7 @@ int main(int argc, char** argv) {
 
                 }
 
-	}
+	}*/
 	
 	MPI_Finalize();
 	
