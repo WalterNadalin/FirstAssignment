@@ -1,0 +1,10 @@
+  4  Maxtime , Mintime + JacobiMi , JacobiMa   0.573183589000       0.572862711000       0.468788291000       0.543386694000       Residual    12019999.9904      MLUPs    3014.74088436    
+  4  Maxtime , Mintime + JacobiMi , JacobiMa   0.588559158000       0.588550677000       0.469552970000       0.564910835000       Residual    2000000.00000      MLUPs    2935.98353965    
+  4  Maxtime , Mintime + JacobiMi , JacobiMa   0.592653914000       0.592635364000       0.471115793000       0.568947237000       Residual    425925.925798      MLUPs    2915.69828391    
+  4  Maxtime , Mintime + JacobiMi , JacobiMa   0.577077725000       0.577064021000       0.470336374000       0.553560437000       Residual    126543.209841      MLUPs    2994.39733183    
+  4  Maxtime , Mintime + JacobiMi , JacobiMa   0.565927995000       0.565894587000       0.470465473000       0.542195702000       Residual    51826.1316875      MLUPs    3053.39197790    
+  4  Maxtime , Mintime + JacobiMi , JacobiMa   0.568119163000       0.568099876000       0.470573754000       0.544552237000       Residual    26702.1350991      MLUPs    3041.61540842    
+  4  Maxtime , Mintime + JacobiMi , JacobiMa   0.561097225000       0.561084562000       0.470804181000       0.537270031000       Residual    15893.9988846      MLUPs    3079.68017486    
+  4  Maxtime , Mintime + JacobiMi , JacobiMa   0.573183717000       0.573168826000       0.470347864000       0.549415938000       Residual    10378.2429903      MLUPs    3014.74021112    
+  4  Maxtime , Mintime + JacobiMi , JacobiMa   0.565206668000       0.565191854000       0.470395700000       0.541493372000       Residual    7222.26330344      MLUPs    3057.28877211    
+  4  Maxtime , Mintime + JacobiMi , JacobiMa   0.611714639000       0.611707630000       0.470512767000       0.588115760000       Residual    5266.18987019      MLUPs    2824.84657033    
