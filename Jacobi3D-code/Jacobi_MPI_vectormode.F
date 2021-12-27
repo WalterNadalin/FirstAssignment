@@ -322,7 +322,7 @@ C
 
          enddo
 
-         call MPI_BARRIER(GRID_COMM_WORLD , ierr)
+!         call MPI_BARRIER(GRID_COMM_WORLD , ierr)
          runtime=MPI_WTIME()-starttime
          call MPI_REDUCE(runtime , maxtime , 1 , MPI_DOUBLE_PRECISION, 
      $        MPI_MAX, 0, GRID_COMM_WORLD, ierr)
