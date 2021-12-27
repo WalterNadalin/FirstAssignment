@@ -269,6 +269,7 @@ C
             call Jacobi_solve1(loca_dim(1),loca_dim(2),loca_dim(3), fieldB, fieldA)
          endif
 
+         call MPI_BARRIER(GRID_COMM_WORLD , ierr)
          JacobiTime=MPI_WTIME()-starttime
 
          do dir = 0 , 1
@@ -322,7 +323,7 @@ C
 
          enddo
 
-!         call MPI_BARRIER(GRID_COMM_WORLD , ierr)
+         call MPI_BARRIER(GRID_COMM_WORLD , ierr)
          runtime=MPI_WTIME()-starttime
          call MPI_REDUCE(runtime , maxtime , 1 , MPI_DOUBLE_PRECISION, 
      $        MPI_MAX, 0, GRID_COMM_WORLD, ierr)
