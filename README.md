@@ -10,5 +10,5 @@
 ## Section 2: measure MPI point to point performance
 Use the Intel MPI benchmark to estimate latency and bandwidth of all available combinations of topologies and networks on ORFEO computational nodes. Use both IntelMPI and openmpi latest version libraries available on ORFEO. Report numbers, graph and also fit data obtained against the simple communication model we discussed. Compare estimated latency and bandwidth parameters against the one provided by a least-square fitting model. 
 
-## Section 3: Compare performance observed against performance model for Jacobi solver
+## Section 3: compare performance observed against performance model for Jacobi solver
 The application we are using here is a Jacobi application already discussed in class.
