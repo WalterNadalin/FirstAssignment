@@ -1,0 +1,57 @@
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+- RING ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+List of useful FILES : 
+- compile_ring.sh : 	bash script to compile ring.c, produces the executable ring.x
+- run_ring.sh : 	bash script which runs ring.x on 24 cores in the same node, the complete communication will be repeated for the number of times present in the file Iterations
+- Iterations : 		file that contains the number of repetions of the complete communication, 1 at the time that the file was uploaded
+
+INSTRUCTIONS to compile and run exploiting the files: 
+- to compile : 	shell$ bash compile_ring.sh
+- to run : 	shell$ qsub run_ring.sh
+
+INSTRUCTIONS to compile and run from COMMAND LINE: 
+1.	shell$ module load openmpi-4.1.1+gnu-9.3.0
+2.	shell$ mpicc ring.c -o ring.x
+3.	shell$ qsub -q dssc -l nodes=1:ppn=24 -l walltime=00:10:00 -I
+4.	shell$ cd $PBS_O_WORKDIR/
+5.	shell$ rm time.dat info.txt
+6. 	shell$ module load openmpi-4.1.1+gnu-9.3.0
+7.	shell$ mpirun -np 24 ./ring.x < Iterations
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+- MATRIX ADDITION ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+List of useful FILES : 
+- compile_sum3Dmatrix.sh : 	bash script to compile sum3Dmatrix.c, produces the executable sum3Dmatrix.x
+- run_sum3Dmatrix.sh : 		bash script which runs sum3Dmatrix.x on 24 cores in the same node, the complete communication will be repeated for the number of times present in the file Iterations
+- Input : 			file that contains the input values for sum3Dmatrix.x, it has to be structured as follows:
+					 _______________________________________________________________________________________
+					|											|
+					|	(Entries of the matrix on the first direction)					|
+					|	(Entries of the matrix on the second direction)					|
+					|	(Entries of the matrix on the third direction)					|
+					|	(Dimension of the virtual topology)						|
+					|	(Number of processors on the first direction of virtual the topology)		|
+					|	(Number of processors on the second direction of virtual the topology)		|
+					.	.										.
+					.	.										.
+					.	.										.
+					|	(Number of processors on the last direction of virtual the topology)		|
+					|											|
+					|_______________________________________________________________________________________|	
+
+INSTRUCTIONS to compile and run exploiting the files: 
+- to compile : 	shell$ bash compile_sum3Dmatrix.sh
+- to run : 	shell$ qsub run_sum3Dmatrix.sh
+
+INSTRUCTIONS to compile and run from COMMAND LINE: 
+1.	shell$ module load openmpi-4.1.1+gnu-9.3.0
+2.	shell$ mpicc sum3Dmatrix.c -o sum3Dmatrix.x
+3.	shell$ qsub -q dssc -l nodes=1:ppn=24 -l walltime=00:30:00 -I
+4.	shell$ cd $PBS_O_WORKDIR/
+5.	shell$ rm time_sum3Dmatrix.dat
+6. 	shell$ module load openmpi-4.1.1+gnu-9.3.0
+7.	shell$ mpirun -np 24 ./sum3Dmatrix.x < Input
